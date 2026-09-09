@@ -1,1 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neighborhood Motors LLC — Tulsa, OK</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+  :root{
+    --charcoal:#1C1F22;
+    --steel:#3C4247;
+    --paper:#F6F4EF;
+    --signal:#F0A93A;
+    --line: rgba(28,31,34,0.15);
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  body{
+    background: var(--paper);
+    color: var(--charcoal);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+  }
+
+  h1,h2,h3, .stamp, .ticket-no{
+    font-family: 'Oswald', sans-serif;
+  }
+
+  a { color: inherit; }
+
+  .wrap{ max-width: 980px; margin: 0 auto; padding: 0 28px; }
+
+  /* HEADER */
+  header{
+    background: var(--charcoal);
+    color: var(--paper);
+    padding: 18px 0;
+  }
+  .nav{
+    display:flex; justify-content:space-between; align-items:center;
+  }
+  .brand{
+    font-family:'Oswald'; font-weight:700; font-size: 1.25rem; letter-spacing: 0.02em;
+  }
+  .brand span{ color: var(--signal); }
+  .nav a.cta{
+    background: var(--signal);
+    color: var(--charcoal);
+    font-weight:600;
+    padding: 9px 18px;
+    border-radius: 3px;
+    text-decoration:none;
+    font-size: 0.92rem;
+  }
+  .nav .links{ display:flex; gap: 28px; font-size: 0.92rem; }
+  .nav .links a{ text-decoration:none; opacity:0.85; }
+
+  /* HERO */
+  .hero{
+    background: var(--charcoal);
+    color: var(--paper);
+    padding: 64px 0 90px;
+    position: relative;
+    border-bottom: 6px solid var(--signal);
+  }
+  .hero .tag{
+    display:inline-block;
+    border: 1px solid rgba(246,244,239,0.35);
+    color: var(--paper);
+    font-size: 0.82rem;
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin-bottom: 22px;
+  }
+  .hero h1{
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.08;
+    max-width: 640px;
+    margin-bottom: 20px;
+  }
+  .hero p.sub{
+    max-width: 520px;
+    color: rgba(246,244,239,0.78);
+    font-size: 1.08rem;
+    margin-bottom: 32px;
+  }
+  .hero .buttons{ display:flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary{
+    background: var(--signal);
+    color: var(--charcoal);
+    font-weight: 600;
+    padding: 13px 26px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 0.98rem;
+  }
+  .btn-secondary{
+    border: 1px solid rgba(246,244,239,0.4);
+    color: var(--paper);
+    padding: 13px 26px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 0.98rem;
+  }
+
+  /* STRIP */
+  .strip{
+    background: var(--signal);
+    color: var(--charcoal);
+    padding: 14px 0;
+    font-family:'Oswald';
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  .strip .wrap{
+    display:flex; justify-content: space-between; flex-wrap:wrap; gap: 10px;
+  }
+
+  /* SERVICES - work order ticket style */
+  .services{ padding: 72px 0; }
+  .services h2{
+    font-size: 1.8rem;
+    margin-bottom: 6px;
+  }
+  .services .lede{
+    color: var(--steel);
+    max-width: 520px;
+    margin-bottom: 40px;
+  }
+  .ticket{
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow:hidden;
+  }
+  .ticket-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    padding: 22px 26px;
+    border-bottom: 1px solid var(--line);
+    gap: 20px;
+  }
+  .ticket-row:last-child{ border-bottom:none; }
+  .ticket-no{
+    color: var(--signal);
+    font-weight: 700;
+    font-size: 0.95rem;
+    min-width: 46px;
+  }
+  .ticket-item h3{
+    font-size: 1.08rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .ticket-item p{
+    color: var(--steel);
+    font-size: 0.94rem;
+    max-width: 460px;
+  }
+
+  /* REVIEWS */
+  .reviews{
+    background: var(--charcoal);
+    color: var(--paper);
+    padding: 72px 0;
+  }
+  .reviews h2{
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+  }
+  .review-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .review-card{
+    border: 1px solid rgba(246,244,239,0.15);
+    border-radius: 4px;
+    padding: 22px;
+  }
+  .review-card .stars{ color: var(--signal); margin-bottom: 12px; font-size: 0.95rem; }
+  .review-card p{ font-size: 0.93rem; color: rgba(246,244,239,0.85); margin-bottom: 14px; }
+  .review-card .who{ font-size: 0.85rem; color: rgba(246,244,239,0.55); }
+
+  /* CONTACT */
+  .contact{
+    padding: 80px 0;
+  }
+  .contact-grid{
+    display:grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 50px;
+    align-items:start;
+  }
+  .contact h2{ font-size: 1.8rem; margin-bottom: 16px; }
+  .contact p.lede{ color: var(--steel); margin-bottom: 28px; max-width: 460px;}
+  .contact .btn-primary{ display:inline-block; }
+  .info-card{
+    background: var(--charcoal);
+    color: var(--paper);
+    border-radius: 6px;
+    padding: 30px;
+  }
+  .info-card .row{
+    display:flex;
+    justify-content:space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(246,244,239,0.15);
+    font-size: 0.93rem;
+  }
+  .info-card .row:last-child{ border-bottom:none; }
+  .info-card .label{ color: rgba(246,244,239,0.55); }
+  .info-card .open-tag{
+    display:inline-block;
+    background: var(--signal);
+    color: var(--charcoal);
+    font-weight:600;
+    font-size: 0.82rem;
+    padding: 4px 10px;
+    border-radius: 3px;
+    margin-top: 18px;
+  }
+
+  /* FORM */
+  form.request-form{
+    margin-top: 28px;
+    display:flex;
+    flex-direction:column;
+    gap: 14px;
+    max-width: 440px;
+  }
+  form.request-form input,
+  form.request-form textarea{
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    background: #fff;
+    color: var(--charcoal);
+  }
+  form.request-form textarea{ min-height: 90px; resize: vertical; }
+  form.request-form button{
+    align-self: flex-start;
+    background: var(--signal);
+    color: var(--charcoal);
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    border: none;
+    padding: 13px 26px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  form.request-form button:hover{ opacity: 0.92; }
+  .form-note{
+    font-size: 0.82rem;
+    color: var(--steel);
+    margin-top: 10px;
+  }
+  .form-success{
+    display:none;
+    background: #EAF7EE;
+    border: 1px solid #B7E4C7;
+    color: #1C6B3A;
+    padding: 14px 16px;
+    border-radius: 4px;
+    font-size: 0.92rem;
+    max-width: 440px;
+    margin-top: 16px;
+  }
+
+  footer{
+    background: var(--charcoal);
+    color: rgba(246,244,239,0.5);
+    text-align:center;
+    padding: 26px 0;
+    font-size: 0.85rem;
+  }
+  footer .mock-note{
+    color: var(--signal);
+    font-weight: 600;
+  }
+
+  @media (max-width: 760px){
+    .nav .links{ display:none; }
+    .hero h1{ font-size: 2.1rem; }
+    .review-grid{ grid-template-columns: 1fr; }
+    .contact-grid{ grid-template-columns: 1fr; }
+    .strip .wrap{ flex-direction:column; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">NEIGHBORHOOD <span>MOTORS</span></div>
+    <div class="links">
+      <a href="#services">Services</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="cta" href="tel:+12137056862">Call now</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="tag">Open 24 hours · East Tulsa</span>
+    <h1>Your car breaks down. We come to it.</h1>
+    <p class="sub">Neighborhood Motors is a Tulsa auto repair shop that also comes to you — mobile diagnostics, glass repair, and full service, day or night.</p>
+    <div class="buttons">
+      <a class="btn-primary" href="tel:+12137056862">Call (213) 705-6862</a>
+      <a class="btn-secondary" href="#contact">Request a mobile visit</a>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="wrap">
+    <span>★ 4.7 rating from real customers</span>
+    <span>Mobile service available</span>
+    <span>1023 E 6th St, Tulsa, OK</span>
+  </div>
+</div>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <h2>What we handle</h2>
+    <p class="lede">From a dead battery in a parking lot to a full glass replacement in your driveway — here's what customers call us for most.</p>
+    <div class="ticket">
+      <div class="ticket-row">
+        <span class="ticket-no">01</span>
+        <div class="ticket-item">
+          <h3>Mobile repair & diagnostics</h3>
+          <p>Can't get your car to us? We'll come to your home or office for a slight service fee — same honest pricing, no shop visit required.</p>
+        </div>
+      </div>
+      <div class="ticket-row">
+        <span class="ticket-no">02</span>
+        <div class="ticket-item">
+          <h3>Auto glass repair & replacement</h3>
+          <p>Cracked windshield or broken window glass, fixed fast — including tricky quarter-glass jobs other shops turn away.</p>
+        </div>
+      </div>
+      <div class="ticket-row">
+        <span class="ticket-no">03</span>
+        <div class="ticket-item">
+          <h3>Alternators, axles & drivetrain work</h3>
+          <p>CV axle replacements, alternator swaps, and the everyday mechanical work that keeps your car reliable.</p>
+        </div>
+      </div>
+      <div class="ticket-row">
+        <span class="ticket-no">04</span>
+        <div class="ticket-item">
+          <h3>General auto repair</h3>
+          <p>If it's wrong with your car, tell us what it's doing — we'll diagnose it straight, and explain what it actually needs.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <h2>What Tulsa is saying</h2>
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Came out the next morning after I called and installed all the windows on my Tahoe quickly and efficiently. Professional, responsive, and easy to work with."</p>
+        <div class="who">Google review</div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"They have services where if you can't go to them, they can go to where you live for a slight price increase — nothing too crazy. Worked fast and efficient."</p>
+        <div class="who">Google review</div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Professional, personable, knowledgeable and honest. I'm going to be back if I have any car needs — go check them out."</p>
+        <div class="who">Google review</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <h2>Get your car looked at today</h2>
+      <p class="lede">Call the shop directly, or send a request below and we'll get back to you — especially handy for booking a mobile visit.</p>
+      <a class="btn-primary" href="tel:+12137056862">Call (213) 705-6862</a>
+
+      <form class="request-form" id="requestForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="tel" name="phone" placeholder="Phone number" required>
+        <input type="text" name="vehicle" placeholder="Vehicle (year, make, model)">
+        <textarea name="message" placeholder="What's going on with your car? Mention if you need a mobile visit." required></textarea>
+        <button type="submit">Send request</button>
+      </form>
+      <div class="form-success" id="formSuccess">Thanks — we got your request and will call you back shortly.</div>
+      <p class="form-note">This form emails your request straight to the shop. No account or app needed on your end.</p>
+    </div>
+    <div class="info-card">
+      <div class="row"><span class="label">Address</span><span>1023 E 6th St, Tulsa, OK 74120</span></div>
+      <div class="row"><span class="label">Phone</span><span>(213) 705-6862</span></div>
+      <div class="row"><span class="label">Hours</span><span>Open 24 hours</span></div>
+      <div class="row"><span class="label">Rating</span><span>4.7 ★ (26 reviews)</span></div>
+      <span class="open-tag">Open now</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Neighborhood Motors LLC · Tulsa, OK &nbsp;—&nbsp; <span class="mock-note">this is a free sample site, not yet live</span>
+  </div>
+</footer>
+
+<script>
+  const form = document.getElementById('requestForm');
+  const successMsg = document.getElementById('formSuccess');
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    const data = new FormData(form);
+    try{
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if(res.ok){
+        form.reset();
+        form.style.display = 'none';
+        successMsg.style.display = 'block';
+      } else {
+        alert('Something went wrong sending your request — please call us instead at (213) 705-6862.');
+      }
+    } catch(err){
+      alert('Something went wrong sending your request — please call us instead at (213) 705-6862.');
+    }
+  });
+</script>
+
+</body>
+</html>
 
